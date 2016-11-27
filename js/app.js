@@ -2,36 +2,42 @@ var hudsonCounty = [
 	{
 		clickCount: 0,
 		name: 'Bayonne',
+		municipalType: 'City',
 		imgSrc: 'img/catB.jpg',
 		speakerNames: ['City Hall','Near 14A Turnpike Ext']
 	},
 	{
 		clickCount: 0,
 		name: 'East Newark',
+		municipalType: 'Borough',		
 		imgSrc: 'img/catA.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Guttenberg',
+		municipalType: 'Town',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Harrison',
+		municipalType: 'Town',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Near Blue Drawbridge']
 	},
 	{
 		clickCount: 0,
 		name: 'Hoboken',
+		municipalType: 'City',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Observer Highway']
 	},
 	{
 		clickCount: 0,
 		name: 'Jersey City',
+		municipalType: 'City',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Exchange Place','Five Corners','Grove Street','Jersey City Heights',
 		            'Liberty State Park','Lincoln Park','Newport']
@@ -39,36 +45,42 @@ var hudsonCounty = [
 	{
 		clickCount: 0,
 		name: 'Kearny',
+		municipalType: 'Town',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Health Department','Jail','Library']
 	},
 	{
 		clickCount: 0,
 		name: 'North Bergen',
+		municipalType: 'Township',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Secaucus',
+		municipalType: 'Town',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Outlets']
 	},
 	{
 		clickCount: 0,
 		name: 'Union City',
+		municipalType: 'City',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Weehawken',
+		municipalType: 'Township',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Ferry']
 	},
 	{
 		clickCount: 0,
 		name: 'West New York',
+		municipalType: 'Town',		
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	}
