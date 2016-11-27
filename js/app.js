@@ -9,35 +9,35 @@ var hudsonCounty = [
 	{
 		clickCount: 0,
 		name: 'East Newark',
-		municipalType: 'Borough',		
+		municipalType: 'Borough',
 		imgSrc: 'img/catA.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Guttenberg',
-		municipalType: 'Town',		
+		municipalType: 'Town',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Harrison',
-		municipalType: 'Town',		
+		municipalType: 'Town',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Near Blue Drawbridge']
 	},
 	{
 		clickCount: 0,
 		name: 'Hoboken',
-		municipalType: 'City',		
+		municipalType: 'City',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Observer Highway']
 	},
 	{
 		clickCount: 0,
 		name: 'Jersey City',
-		municipalType: 'City',		
+		municipalType: 'City',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Exchange Place','Five Corners','Grove Street','Jersey City Heights',
 		            'Liberty State Park','Lincoln Park','Newport']
@@ -45,42 +45,42 @@ var hudsonCounty = [
 	{
 		clickCount: 0,
 		name: 'Kearny',
-		municipalType: 'Town',		
+		municipalType: 'Town',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Health Department','Jail','Library']
 	},
 	{
 		clickCount: 0,
 		name: 'North Bergen',
-		municipalType: 'Township',		
+		municipalType: 'Township',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Secaucus',
-		municipalType: 'Town',		
+		municipalType: 'Town',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Outlets']
 	},
 	{
 		clickCount: 0,
 		name: 'Union City',
-		municipalType: 'City',		
+		municipalType: 'City',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	},
 	{
 		clickCount: 0,
 		name: 'Weehawken',
-		municipalType: 'Township',		
+		municipalType: 'Township',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['Ferry']
 	},
 	{
 		clickCount: 0,
 		name: 'West New York',
-		municipalType: 'Town',		
+		municipalType: 'Town',
 		imgSrc: 'img/catC.jpg',
 		speakerNames: ['None discovered yet']
 	}
