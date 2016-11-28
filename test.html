@@ -9,11 +9,9 @@ API Course, Lesson 1 -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
-   <style type="text/css">
-     /*html, body { height: 100%; margin: 0; padding: 0; }*/
-     #map { height: 100%; }
-   </style>
+
  </head>
  <body>
 
@@ -22,14 +20,14 @@ API Course, Lesson 1 -->
 
     <div class="five columns" style="margin-top: 1%">
     <h4>Hudson County Speaker System</h4>
-        <p>The Hudson County Speaker System is located in Hudson County, New Jersey, United States, North America.  Henry has discovered 15 of the 31 speakers.  More to come.</p>
+        <p>The Hudson County Speaker System is located in Hudson County, New Jersey, United States, North America.  Henry has discovered 12 of the 31 speakers.  More to come.</p>
 
-<label for="hudson-county-dropdown">Filter by Municipality</label>
+<label for="hudson-county-dropdown">Filter by Individual Speakers</label>
         <select class="u-full-width" id="hudson-county-dropdown" data-bind="foreach: locationList">
           <option data-bind="text: name, value: name"></option>
         </select>
 
-    <label for="location-list">All Municipalities</label>
+    <label for="location-list">All Speakers (So Far...)</label>
         <ul id="location-list" data-bind="foreach: locationList">
     <li data-bind="text: name"></li>
     </ul>
