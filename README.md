@@ -1,8 +1,8 @@
-# Hudson County Speakers Map (frontend-nanodegree-neighborhood-map)
+# Hudson County Speakers Map ("Neighborhood Map")
 ===================================================================
 
 ### How to load the map
-After cloning or downloading the directory from GitHub, the biggest challenge to getting the game up and running is starting the web server.  I've found python to be the easiest way to get a web server up and running.  These instructions assume you'll use python.  If you have the ability to start up a different web server, then you're all set, proceed to "Using the Map."
+After cloning or downloading the directory from GitHub, the biggest challenge to getting the map up and running is starting the web server.  I've found python to be the easiest way to get a web server up and running.  These instructions assume you'll use python.  If you have the ability to start up a different web server, then you're all set, proceed to "Using the Map."
 
   - ( 1) open a command prompt
   - ( 2) type ```python --version``` and press enter
@@ -34,3 +34,5 @@ Before using the map you must:
   - Imagine a fascinated 5 year-old
   - Know what Hudson County is
   - Read [this article](http://www.atisystem.com/pubs/casestudies/Hudson-County.pdf ):
+
+Otherwise it's just clickin.  Enjoy!
