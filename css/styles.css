@@ -5,4 +5,8 @@ html {
     font-size:60%;
 }
 
+.article-list {
+    font-size: .9em;
+}
+
 #map { height: 100%; }
