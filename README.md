@@ -8,7 +8,7 @@ After cloning or downloading the directory from GitHub, the biggest challenge to
   - ( 2) type ```python --version``` and press enter
   - (3a) if you are told that python is not recognized, then you must install python
   - (3b) if you are given a python version number, then you are ready to run the server
-  - ( 4) after you have python installed (and ```python --version``` produces a version number in the output within the command prompt) navigate (using your system's change directory command) to the directory where you've saved the game code--  you want to start your server from within the same folder where index.html resides.
+  - ( 4) after you have python installed (and ```python --version``` produces a version number in the output within the command prompt) navigate (using your system's change directory command) to the directory where you've saved the map code--  you want to start your server from within the same folder where index.html resides.
   - ( 5) now that you've navigated to the map's main directory, depending on which version of python you have installed, type one of the following commands:
 
 * If using Python 2
