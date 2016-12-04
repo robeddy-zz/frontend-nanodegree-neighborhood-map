@@ -25,8 +25,10 @@ Serving HTTP on 0.0.0.0 port 1234
 ```
 - ( 5) The final step is to open your browser and enter the following URL:
 ```sh
-http://127.0.0.1:1234 (avoid using http://localhost:1234, caused issues with apis)
+http://127.0.0.1:1234
 ```
+Avoid using http://localhost:1234, "localhost" caused issues with API calls.
+
 
 ### Using the Map
 Before using the map you must:
