@@ -33,6 +33,6 @@ Before using the map you must:
   - Have an open mind
   - Imagine a fascinated 5 year-old
   - Know what Hudson County is
-  - Read [this article](http://www.atisystem.com/pubs/casestudies/Hudson-County.pdf ):
+  - Read [this article](http://www.atisystem.com/pubs/casestudies/Hudson-County.pdf )
 
 Otherwise it's just clickin.  Enjoy!
