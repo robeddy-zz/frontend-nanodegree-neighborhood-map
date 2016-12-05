@@ -1,9 +1,8 @@
 //TO DO LIST
-		// ENCAPSULATE THE HIDING AND SHOWING OF LIST AREA AND READING AREA
+// ENCAPSULATE THE HIDING AND SHOWING OF LIST AREA AND READING AREA
 
 var hudsonCounty = [
 	{
-		clickCount: 0,
 		name: 'Bayonne',
 		municipal:'Bayonne',
 		municipalType: 'City',
@@ -15,7 +14,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Bayonne-City Hall',
 		municipal:'Bayonne',
 		municipalType: 'City',
@@ -27,7 +25,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Berry Lane Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -39,7 +36,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Exchange Place',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -51,7 +47,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Grove Street',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -63,7 +58,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Harrison',
 		municipal:'Harrison',
 		municipalType: 'Town',
@@ -75,7 +69,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Hoboken',
 		municipal:'Hoboken',
 		municipalType: 'City',
@@ -87,7 +80,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Jersey City Heights',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -99,7 +91,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Kearny Health Department',
 		municipal:'Kearny',
 		municipalType: 'Town',
@@ -111,7 +102,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Liberty State Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -123,7 +113,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Lincoln Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -135,7 +124,6 @@ var hudsonCounty = [
 		}
 	},
 	{
-		clickCount: 0,
 		name: 'Newport',
 		municipal:'Jersey City',
 		municipalType: 'City',
@@ -153,20 +141,9 @@ var map;
 
 var markers = [];
 var speakerNames = [];
+var speakerMunis = [];
 
 
-var Location = function(data) {
-	this.clickCount = ko.observable(data.clickCount);
-	this.name = ko.observable(data.name);
-	this.imgSrc = ko.observable(data.imgSrc);
-	//this.speakerNames = ko.observableArray(data.speakerNames);
-}
-
-     // TODO: Create a map variable
-
-
-
-     // TODO: Complete the following function to initialize the map
 function initMap() {
 
       //this one initMap function has 4 main parts
@@ -430,10 +407,10 @@ function nytimes(speakerParam){
     		//console.log('inNYtimes');
 
 	        articles = data.response.docs;
-	        articles_max_five = articles.length > 5 ? 5 : articles.length;
+	        articles_max = articles.length > 5 ? 5 : articles.length;
 
-	        if (articles_max_five > 0) {
-	        		for (var i = 0; i < articles_max_five; i++) {
+	        if (articles_max > 0) {
+	        		for (var i = 0; i < articles_max; i++) {
             		var article = articles[i];
             		$nytElem.append('<li><a href="' + article.web_url + '"  target="_blank">' + article.headline.main +'</a></li>');
         		};
@@ -447,19 +424,16 @@ function nytimes(speakerParam){
 }
 
 
+
 var ViewModel = function() {
 	var self = this;
 
 	this.locationList = ko.observableArray([]);
 
-	hudsonCounty.forEach(function(loc){
-		self.locationList.push( new Location(loc) );
-	});
-
 	speakerInfoWindow = new google.maps.InfoWindow();
 
 
-	//make the restaurant array an observable array
+	//make the speakers array an observable array
 	self.allSpeakers = ko.observable(hudsonCounty);
 
 	//loop through hudsonCounty and load speakers and create markers for speakers
@@ -483,6 +457,35 @@ var ViewModel = function() {
 		oneSpeaker = speaker.name;
 		speakerNames.push(oneSpeaker);
 
+		// console.log(speakerMunis);
+		oneMuni = speaker.municipal;
+
+		function pushMuni(muni) {
+        	found = false;
+        	push = 'no';
+        	// console.log('muni==',muni);
+        	if (speakerMunis.length === 0) {
+        		found = false;
+        	} else {
+        		for (var i = 0; i < speakerMunis.length; i++) {
+        			if (muni == speakerMunis[i] ) {
+        				found = true;
+        			};
+        		};
+
+        	};
+
+
+        	return found;
+		}
+		// console.log('1m',pushMuni(oneMuni));
+		if (pushMuni(oneMuni) == false) {
+			speakerMunis.push(oneMuni);
+		};
+
+
+		//speakerMunis.push(oneMuni);
+
 		document.getElementById("reading_area").style.visibility = "hidden";
 
 		marker.addListener('click',function() {
@@ -494,6 +497,8 @@ var ViewModel = function() {
 	});
 
 	//console.log('spNames',speakerNames);
+
+
 
 	self.populateInfoWindow = function(speaker) {
 		var marker = speaker.marker;
@@ -520,25 +525,26 @@ var ViewModel = function() {
 
 			document.getElementById("reading_area").style.visibility = "hidden";
 			document.getElementById("reading_area").style.height = "0px";
+			document.getElementById("list_area_label").innerHTML = "All Speakers (So Far)";
 			document.getElementById("list_area").style.visibility = "visible";
 			document.getElementById("list_area").style.height = "auto";
 			return self.allSpeakers();
 		}
 		else {
+			nytimes('"'+ filter + '" "Hudson County"');
 			return ko.utils.arrayFilter(self.allSpeakers(), function(speaker) {
-				var speakerName = speaker.name.toLowerCase();
+				var speakerName = speaker.municipal.toLowerCase();
 				var match = filter === speakerName;
 				speaker.marker.setVisible(match);
 				document.getElementById("reading_area").style.visibility = "visible";
 				document.getElementById("reading_area").style.height = "auto";
-				document.getElementById("list_area").style.visibility = "hidden";
-				document.getElementById("list_area").style.height = "0px";
-				console.log('match',match);
-				console.log('filter',filter);
+				// document.getElementById("list_area").style.visibility = "hidden";
+				// console.log('l_a_l',document.getElementById("list_area_label").innerHTML);
+				document.getElementById("list_area_label").innerHTML = "All Speakers in This Municipalilty";
+				// document.getElementById("list_area").style.height = "0px";
+				//console.log('match',match);
+				//console.log('filter',filter);
 				//nytimes(match);
-				if (match) {
-					nytimes('"'+ filter + '" "Hudson County"');
-				};
 				return match;
 			});
 		}

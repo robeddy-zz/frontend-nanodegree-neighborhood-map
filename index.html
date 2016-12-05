@@ -1,8 +1,5 @@
-<!-- This is the corresponding "starter code" for 04_Hello Map in Udacity and Google's Maps
-API Course, Lesson 1 -->
 <html>
  <head>
- <!-- styles put here, but you can include a CSS file and reference it instead! -->
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,13 +19,12 @@ API Course, Lesson 1 -->
     <h4>Hudson County Speaker System</h4>
         <p>The Hudson County Speaker System is located in Hudson County, New Jersey, United States, North America.  Henry has discovered 12 of the 31 speakers.  More to come.</p>
 
-<label for="hudson-county-dropdown">Filter by Individual Speakers</label>
-        <!-- <select class="u-full-width" id="hudson-county-dropdown" data-bind="foreach: locationList"> -->
-        <select class="u-full-width" id="hudson-county-dropdown" data-bind="options: speakerNames, optionsCaption: 'No Filter', value: selectedSpeaker">
+<label for="hudson-county-dropdown">Filter by Municipality</label>
+        <select class="u-full-width" id="hudson-county-dropdown" data-bind="options: speakerMunis, optionsCaption: 'No Filter', value: selectedSpeaker">
         </select>
 
     <div id="list_area">
-    <label for="location-list">All Speakers (So Far...)</label>
+    <label id="list_area_label" for="location-list">All Speakers (So Far...)</label>
         <ul id="location-list" data-bind="foreach: filteredByType">
             <li> <a data-bind="text: name, click: $root.populateInfoWindow" href="#"> </a></li>
         </ul>
