@@ -6,7 +6,7 @@ var hudsonCounty = [
 		name: 'Bayonne',
 		municipal:'Bayonne',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '1137 Broadway in Bayonne',
 		coords: {
 			lat: 40.685484,
@@ -17,7 +17,7 @@ var hudsonCounty = [
 		name: 'Bayonne-City Hall',
 		municipal:'Bayonne',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '617 Avenue C in Bayonne',
 		coords: {
 			lat: 40.668556,
@@ -28,7 +28,7 @@ var hudsonCounty = [
 		name: 'Berry Lane Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catC.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '1066 Garfield Ave in Jersey City',
 		coords: {
 			lat: 40.714493,
@@ -39,7 +39,7 @@ var hudsonCounty = [
 		name: 'Exchange Place',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: 'Christopher Columbus Dr in Jersey City',
 		coords: {
 			lat: 40.717200,
@@ -50,7 +50,7 @@ var hudsonCounty = [
 		name: 'Grove Street',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '95 Marin Blvd in Jersey City',
 		coords: {
 			lat: 40.718859,
@@ -61,7 +61,7 @@ var hudsonCounty = [
 		name: 'Harrison',
 		municipal:'Harrison',
 		municipalType: 'Town',
-		imgSrc: 'img/catC.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '353 Frank E Rodgers Blvd South in Harrison',
 		coords: {
 			lat: 40.743598,
@@ -72,7 +72,7 @@ var hudsonCounty = [
 		name: 'Hoboken',
 		municipal:'Hoboken',
 		municipalType: 'City',
-		imgSrc: 'img/catC.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '63 Observer Hwy in Hoboken',
 		coords: {
 			lat: 40.735497,
@@ -83,7 +83,7 @@ var hudsonCounty = [
 		name: 'Jersey City Heights',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '309 Paterson Plank Rd in Jersey City',
 		coords: {
 			lat: 40.749134,
@@ -94,7 +94,7 @@ var hudsonCounty = [
 		name: 'Kearny Health Department',
 		municipal:'Kearny',
 		municipalType: 'Town',
-		imgSrc: 'img/catC.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '639 Kearny Ave in Kearny',
 		coords: {
 			lat: 40.773315,
@@ -105,7 +105,7 @@ var hudsonCounty = [
 		name: 'Liberty State Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '86 Audrey Zapp Dr in Jersey City',
 		coords: {
 			lat: 40.709475,
@@ -116,7 +116,7 @@ var hudsonCounty = [
 		name: 'Lincoln Park',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '53 US-9 Truck in Jersey City',
 		coords: {
 			lat: 40.729630,
@@ -127,7 +127,7 @@ var hudsonCounty = [
 		name: 'Newport',
 		municipal:'Jersey City',
 		municipalType: 'City',
-		imgSrc: 'img/catB.jpg',
+		imgSrc: 'img/spkr[name].jpg',
 		strAddr: '525 Washington Blvd in Jersey City',
 		coords: {
 			lat: 40.726500,
@@ -395,33 +395,7 @@ function initMap() {
 
 
 /* NY TIMES AREA */
-function nytimes(speakerParam){
-	var speakerStr = speakerParam;
-    $('#nytimes-articles').html('');
-	//console.log($('#nytimes-articles'));
-    var $nytElem = $('#nytimes-articles');
-    var $nytHeaderElem = $('#nytimes-header');
-    var nytimesURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + speakerStr + '&sort=newest&api-key=75c2f356ffcc4873a66c4bfccc40b327';
-    //console.log(speakerStr);
-	$.getJSON(nytimesURL,function(data){
-    		//console.log('inNYtimes');
 
-	        articles = data.response.docs;
-	        articles_max = articles.length > 5 ? 5 : articles.length;
-
-	        if (articles_max > 0) {
-	        		for (var i = 0; i < articles_max; i++) {
-            		var article = articles[i];
-            		$nytElem.append('<li><a href="' + article.web_url + '"  target="_blank">' + article.headline.main +'</a></li>');
-        		};
-	        } else {
-	        	$nytElem.append('<li>No news coverage... yet.</li>');
-	        };
-
-    	}).fail(function(e){
-	        $nytElem.text('You shouldn\'t see this.  Somthins up.  Please check your internet connection and refresh.');
-	    })
-}
 
 
 
@@ -486,12 +460,41 @@ var ViewModel = function() {
 
 		//speakerMunis.push(oneMuni);
 
-		document.getElementById("reading_area").style.visibility = "hidden";
+		//document.getElementById("reading_area").style.visibility = "hidden";
 
 		marker.addListener('click',function() {
 			self.toggleBounce(marker);
-			speakerInfoWindow.open(map, marker);
-			speakerInfoWindow.setContent('The ' + marker.name + ' Speaker<br>' + marker.street);
+
+			/* nytimes */
+			htmlString = (function (speakerParam){
+				console.log(speakerParam.name);
+            	var speakerStr = speakerParam.name + ' Hudson County New Jersey';
+
+                var nytimesURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + speakerStr + '&sort=newest&api-key=75c2f356ffcc4873a66c4bfccc40b327';
+                console.log(nytimesURL);
+            	$.getJSON(nytimesURL,function(data){
+                		var contentString = '';
+            	        articles = data.response.docs;
+            	        articles_max = articles.length > 1 ? 1 : articles.length;
+
+            	        if (articles_max > 0) {
+            	        	for (var i = 0; i < articles_max; i++) {
+                        		var article = articles[i];
+								console.log('hit if');
+								contentString = '<a href="' + article.web_url + '"  target="_blank">' + article.headline.main +'</a><br>';
+								console.log(contentString);
+								speakerInfoWindow.open(map, marker);
+								speakerInfoWindow.setContent('<p><b>The ' + marker.name + ' Speaker</b><br>' + marker.street + '</p>' + '<em>News Near this Speaker:</em><br>' + contentString);
+                    		};
+            	        };
+
+                	}).fail(function(e){
+                		speakerInfoWindow.open(map, marker);
+            	        speakerInfoWindow.setContent('No articles nearby.  Check back soon!');
+            	})
+            }(marker));
+			/* nytimes */
+
 		});
 
 	});
@@ -522,29 +525,13 @@ var ViewModel = function() {
 			markers.forEach(function(marker){
 				marker.setVisible(true);
 			});
-
-			document.getElementById("reading_area").style.visibility = "hidden";
-			document.getElementById("reading_area").style.height = "0px";
-			document.getElementById("list_area_label").innerHTML = "All Speakers (So Far)";
-			document.getElementById("list_area").style.visibility = "visible";
-			document.getElementById("list_area").style.height = "auto";
 			return self.allSpeakers();
 		}
 		else {
-			nytimes('"'+ filter + '" "Hudson County"');
 			return ko.utils.arrayFilter(self.allSpeakers(), function(speaker) {
 				var speakerName = speaker.municipal.toLowerCase();
 				var match = filter === speakerName;
 				speaker.marker.setVisible(match);
-				document.getElementById("reading_area").style.visibility = "visible";
-				document.getElementById("reading_area").style.height = "auto";
-				// document.getElementById("list_area").style.visibility = "hidden";
-				// console.log('l_a_l',document.getElementById("list_area_label").innerHTML);
-				document.getElementById("list_area_label").innerHTML = "All Speakers in This Municipalilty";
-				// document.getElementById("list_area").style.height = "0px";
-				//console.log('match',match);
-				//console.log('filter',filter);
-				//nytimes(match);
 				return match;
 			});
 		}
@@ -563,15 +550,8 @@ var ViewModel = function() {
 	};
 
 
-	// this.currentCat = ko.observable( this.catList()[0] );
 
-	// this.incrementCounter = function() {
-	// 	self.currentCat().clickCount(self.currentCat().clickCount() + 1);
-	// };
 
-	// this.setCat = function(clickedCat) {
-	// 	self.currentCat(clickedCat)
-	// };
 }
 
 
